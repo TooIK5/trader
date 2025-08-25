@@ -1,0 +1,23 @@
+{
+  "name": "mytrader",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "asyncio": "^0.0.2",
+    "axios": "^1.11.0",
+    "blessed": "^0.1.81",
+    "blessed-contrib": "^4.11.0",
+    "ccxt": "^4.4.96",
+    "express": "^5.1.0",
+    "mathjs": "^14.5.3",
+    "regression": "^2.0.1",
+    "ws": "^8.18.3"
+  }
+}

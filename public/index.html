@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Binance coin/USDT Trade Feed</title>
+  <link rel="stylesheet" href="style.css">
+ 
+</head>
+
+<body>
+  
+    <div class="mainbox">
+<div class="container orders">
+  <h1>Orders</h1>
+  <div class="order-display">
+      Current diffrence: <span id="currentOrder" class="current-order">-</span> 
+ </div>
+ <div class="amount-filter">
+  <input type="number" id="minAmountFilter" placeholder="Min amount (USD)" min="0" step="1000">
+   
+ <div class="speed-counters">
+ 
+  <div>Trades: (<span id="buySpeed">0</span> buy | <span id="sellSpeed">0</span> sell)
+  </div>
+  <div>Ratio: <span id="tradeRatio">0</span>%</div>
+</div>
+
+</div>
+  <div class="order-book">
+    <div class="order-side">
+      <h3>Buy (Bids)</h3>
+      <div class="trade-header" style="display: flex; justify-content: space-between; padding: 10px; font-weight: bold; border-bottom: 1px solid #444;">
+      <span class="price">Price</span>
+      <span class="amount">Amount (coin)</span>
+      <span class="cost">Value (USD)</span>
+    </div>
+      <div class="order-list" id="bids"></div>
+    </div>
+    <div class="order-side">
+      <h3>Sell (Asks)</h3>
+      <div class="trade-header" style="display: flex; justify-content: space-between; padding: 10px; font-weight: bold; border-bottom: 1px solid #444;">
+      <span class="price">Price</span>
+      <span class="amount">Amount (coin)</span>
+      <span class="cost">Value (USD)</span>
+    </div>
+      <div class="order-list" id="asks"></div>
+    </div>
+  </div>
+</div>
+
+<div class="container-tools">
+    <h1>TOOLS</h1>
+    <h2>Coin/USDT: </h2>
+    <form id="coinForm">
+    
+    <input type="text" id="pairName" name="pair" 
+           placeholder="btcusdt" >    
+    <button type="submit">Применить</button>
+  </form>
+   <h1>Real-time Price Chart: <span id="symbol">SOL/USDT</span></h1>
+    <div class="price-display" id="priceDisplay">Loading...</div>
+    <div class="chart-container">
+      <canvas id="priceChart2" height="300"></canvas>
+    </div>
+
+
+<canvas id="priceChart" height="200" ></canvas>
+    <h2>Filter: </h2>
+     <div class="filter-controls">
+  <form id="filterForm">
+    <span>Отфильтровать сделки в ленте: </span>
+    <input type="number" id="sizeFilter" name="minSize" 
+           placeholder="Show value from... (USD)" step="0.01" min="0">
+            
+    <button type="submit">Применить фильтр</button>
+  </form>
+   
+  <form id="bsParamsForm">
+    <div style="padding: 5px;" >Параметры расчета bye/sell: </div>
+    
+    <input type="number" id="bsParamsPeriodInput" name="bsperiod" 
+           placeholder="Time interval (def = 5 sec)" step="1" min="0"> Sec
+    <input type="number" id="bsParamsPriceInput" name="bsprice" 
+           placeholder="Min tracking cost (def = 50$)" step="1" min="0"> $
+            
+    <button type="submit">Применить фильтр</button>
+  </form>
+ 
+</div>
+
+
+
+</div>
+
+  <div class="containerTrades">
+    <h1>Coin/USDT Trade Feed</h1>
+    
+    <div class="price-display">
+      Current Price: <span id="currentPrice" class="current-price">-</span> USDT
+    </div>
+    
+    <div class="trade-header" style="display: flex; justify-content: space-between; padding: 10px; font-weight: bold; border-bottom: 1px solid #444;">
+      <span class="time">Time</span>
+      <span class="price">Price</span>
+      <span class="amount">Amount (coin)</span>
+      <span class="cost">Value (USD)</span>
+      <span class="side">Side</span>
+    </div>
+    
+    <div class="trade-container" id="trades">
+
+    </div>
+    </div>
+  </div>
+     <script src="index.js"></script>
+     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</body>
+</html>
